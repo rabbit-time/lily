@@ -7,7 +7,6 @@ license = "GPL-3.0-only"
 description = "A simple command-line tool to give you positivity and encouragement!"
 repository = "https://github.com/emisdumb/lily"
 keywords = ["cli", "quotes", "positivity"]
-
 include = ["./src", "./quotes.txt"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
