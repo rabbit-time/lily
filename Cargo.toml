@@ -1,9 +1,12 @@
 [package]
 name = "lily"
 version = "0.1.0"
+authors = ["emily"]
 edition = "2021"
 license = "GPL-3.0-only"
-keywords = ["cli", "quotes"]
+description = "A simple command-line tool to give you positivity and encouragement!"
+repository = "https://github.com/emisdumb/lily"
+keywords = ["cli", "quotes", "positivity"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
