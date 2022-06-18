@@ -38,9 +38,9 @@ impl Quote {
             }
         }
         Ok(Quote {
-            text: text,
-            position: position,
-            total: total,
+            text,
+            position,
+            total,
         })
     }
 }
