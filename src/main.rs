@@ -1,8 +1,8 @@
-use std::error::Error;
-use std::{include_bytes};
-use std::io::{prelude::*, Cursor, SeekFrom};
-use std::fmt::{self, Display, Formatter};
 use rand::Rng;
+use std::error::Error;
+use std::fmt::{self, Display, Formatter};
+use std::include_bytes;
+use std::io::{prelude::*, Cursor, SeekFrom};
 
 fn main() {
     let quote = Quote::from().expect("There was a problem fetching the quote");
@@ -12,7 +12,7 @@ fn main() {
 struct Quote {
     text: String,
     position: usize,
-    total: usize
+    total: usize,
 }
 
 impl Quote {
@@ -37,12 +37,20 @@ impl Quote {
                 break;
             }
         }
-        Ok(Quote {text: text, position: position, total: total})
+        Ok(Quote {
+            text: text,
+            position: position,
+            total: total,
+        })
     }
 }
 
 impl Display for Quote {
     fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
-        write!(f, "  \"{}\"\nQuote {} of {}", self.text, self.position, self.total)
+        write!(
+            f,
+            "  \"{}\"\nQuote {} of {}",
+            self.text, self.position, self.total
+        )
     }
 }
