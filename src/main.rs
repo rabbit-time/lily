@@ -1,12 +1,9 @@
 use rand::Rng;
-use std::error::Error;
-use std::fmt::{self, Display, Formatter};
-use std::include_bytes;
-use std::io::{prelude::*, Cursor, SeekFrom};
+use std::fmt;
 
 fn main() {
-    let quote = Quote::from().expect("There was a problem fetching the quote");
-    println!("{}", quote);
+    let quote = Quote::from();
+    println!("{quote}");
 }
 
 struct Quote {
@@ -16,41 +13,28 @@ struct Quote {
 }
 
 impl Quote {
-    fn from() -> Result<Quote, Box<dyn Error>> {
-        let file = include_bytes!("../quotes.txt");
-        let mut cursor = Cursor::new(file);
+    fn from() -> Quote {
+        let quotes: Vec<_> = include_str!("../quotes.txt").lines().collect();
+        let total = quotes.len();
 
-        // count total lines in file
-        let total = (&mut cursor).lines().count();
+        let choice = rand::thread_rng().gen_range(0..total);
 
-        let mut rng = rand::thread_rng();
-        let choice = rng.gen_range(1..=total) as usize;
-
-        // get the nth line in file
-        let mut text = String::new();
-        let mut position = 0;
-        cursor.seek(SeekFrom::Start(0))?;
-        for (n, line) in file.lines().enumerate() {
-            if n + 1 == choice {
-                text = line?;
-                position = n + 1;
-                break;
-            }
-        }
-        Ok(Quote {
-            text,
-            position,
+        Quote {
+            text: quotes[choice].to_owned(),
+            position: choice + 1, // Readers will likely prefer 1-indexing
             total,
-        })
+        }
     }
 }
 
-impl Display for Quote {
-    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
-        write!(
-            f,
-            "  \"{}\"\nQuote {} of {}",
-            self.text, self.position, self.total
-        )
+impl fmt::Display for Quote {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        let Self {
+            text,
+            position,
+            total,
+        } = self;
+
+        write!(f, "  \"{text}\"\nQuote {position} of {total}")
     }
 }
