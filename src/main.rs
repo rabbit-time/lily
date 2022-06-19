@@ -2,7 +2,7 @@ use rand::Rng;
 use std::fmt;
 
 fn main() {
-    let quote = Quote::from();
+    let quote = Quote::new();
     println!("{quote}");
 }
 
@@ -13,7 +13,7 @@ struct Quote {
 }
 
 impl Quote {
-    fn from() -> Quote {
+    fn new() -> Quote {
         let quotes: Vec<_> = include_str!("../quotes.txt").lines().collect();
         let total = quotes.len();
 
