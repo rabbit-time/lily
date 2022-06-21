@@ -10,7 +10,7 @@ That's it!
 ```
 $ lily
   "Stay strong, your story isn't over yet."
-Quote 10 of 87
+Quote 10 of 104
 ```
 
 ---
