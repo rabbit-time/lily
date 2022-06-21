@@ -12,3 +12,7 @@ $ lily
   "Stay strong, your story isn't over yet."
 Quote 10 of 87
 ```
+
+---
+
+Currently there is a small number of quotes. I can only add so many quotes by myself. If you would like to add some, consider [submitting a PR](https://github.com/emisdumb/lily/pulls).
