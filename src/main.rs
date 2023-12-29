@@ -1,9 +1,10 @@
 use rand::Rng;
 use std::fmt;
+use colored::Colorize;
 
 fn main() {
     let quote = Quote::new();
-    println!("{quote}");
+    println!("{}", quote.text.green().bold()); // Added default green color to the output (TODO: Add customizable colors)
 }
 
 struct Quote {
