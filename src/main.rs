@@ -1,5 +1,6 @@
 use rand::Rng;
 use std::fmt;
+use colored::Colorize;
 
 fn main() {
     let quote = Quote::new();
@@ -34,7 +35,10 @@ impl fmt::Display for Quote {
             position,
             total,
         } = self;
+        
+        let colored_quote = format!("\"{text}\"").bright_green().bold(); //(TODO: Add customizable colors)
+        let output_string = format!("  {colored_quote}\nQuote {position} of {total}");
 
-        write!(f, "  \"{text}\"\nQuote {position} of {total}")
+        write!(f, "{}", output_string)
     }
 }
