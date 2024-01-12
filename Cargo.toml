@@ -1,11 +1,11 @@
 [package]
 name = "lily"
 version = "0.3.0"
-authors = ["emily"]
+authors = ["rabbit-time"]
 edition = "2021"
 license = "GPL-3.0-only"
 description = "A simple command-line tool to give you positivity and encouragement!"
-repository = "https://github.com/emisdumb/lily"
+repository = "https://github.com/rabbit-time/lily"
 keywords = ["cli", "quotes", "positivity"]
 include = ["/src", "/quotes.txt"]
 
