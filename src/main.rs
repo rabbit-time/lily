@@ -4,7 +4,7 @@ use colored::Colorize;
 
 fn main() {
     let quote = Quote::new();
-    println!("{}", quote.text.green().bold()); // Added default green color to the output (TODO: Add customizable colors)
+    println!("{quote}");
 }
 
 struct Quote {
@@ -35,7 +35,10 @@ impl fmt::Display for Quote {
             position,
             total,
         } = self;
+        
+        let colored_quote = format!("\"{text}\"").bright_green().bold(); //(TODO: Add customizable colors)
+        let output_string = format!("  {colored_quote}\nQuote {position} of {total}");
 
-        write!(f, "  \"{text}\"\nQuote {position} of {total}")
+        write!(f, "{}", output_string)
     }
 }
