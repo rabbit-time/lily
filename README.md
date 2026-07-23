@@ -15,4 +15,4 @@ Quote 10 of 104
 
 ---
 
-Currently there is a small number of quotes. I can only add so many quotes by myself. If you would like to add some, consider [submitting a PR](https://github.com/emisdumb/lily/pulls).
+Currently there is a small number of quotes. I can only add so many quotes by myself. If you would like to add some, consider [submitting a PR](https://github.com/rootrascal/lily/pulls).
